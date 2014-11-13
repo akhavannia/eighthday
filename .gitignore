@@ -1,3 +1,5 @@
 /tmp
+/lib
 *.iml
 *.ipr
+*.iws
