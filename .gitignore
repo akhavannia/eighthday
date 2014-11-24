@@ -1,5 +1,7 @@
 /tmp
 /lib
+/test-result
+
 *.iml
 *.ipr
 *.iws

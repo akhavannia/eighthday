@@ -13,3 +13,9 @@ GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
+
+# Events
+POST    /events                                 Events.create
+GET     /events/locations/{location}            Events.read
+GET     /events/{tag}/locations/{location}      Events.read
