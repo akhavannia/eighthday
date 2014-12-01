@@ -18,6 +18,11 @@ public class Events extends Controller {
         ok();
     }
 
+    public static void list() {
+        List<Event> events = Event.all().fetch(0,20);
+        renderJSON(events);
+    }
+
     public static void read(String tag, String location) throws IOException {
         String where = "location LIKE :location ";
         if( tag != null && !tag.isEmpty() ) {
