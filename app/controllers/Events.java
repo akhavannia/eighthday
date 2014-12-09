@@ -5,6 +5,7 @@ import models.Event;
 import org.apache.commons.io.IOUtils;
 import play.db.jpa.GenericModel;
 import play.mvc.Controller;
+import play.mvc.Http;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -15,11 +16,13 @@ public class Events extends Controller {
     public static void create() throws IOException {
         Event event = new Gson().fromJson(readBody(), Event.class);
         event.save();
+        response.setHeader("Access-Control-Allow-Origin","*");
         ok();
     }
 
     public static void list() {
         List<Event> events = Event.all().fetch(0,20);
+        response.setHeader("Access-Control-Allow-Origin","*");
         renderJSON(events);
     }
 
@@ -36,6 +39,7 @@ public class Events extends Controller {
 
         List<Event> event = query.fetch();
 
+        response.setHeader("Access-Control-Allow-Origin","*");
         renderJSON(event);
     }
 
